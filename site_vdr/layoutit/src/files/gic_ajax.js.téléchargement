@@ -1,0 +1,10 @@
+$(document).ready(function() {
+    var ajaxItems = $('.ajax');
+
+    if (ajaxItems.length > 0) {
+        ajaxItems.renderAjax({
+            callback:function () {
+            }
+        });
+    };
+});

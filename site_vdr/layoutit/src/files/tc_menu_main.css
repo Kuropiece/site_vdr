@@ -1,0 +1,78 @@
+.clear {
+	clear: both;
+}
+
+.tcMenuFly.tcMenuFlylevel1 {
+	list-style-type: none;
+	position: relative;
+	float: left;
+	margin: 0;
+	min-width: 50px;
+}
+
+.tcMenuFly.tcMenuFlylevel1:after {
+	clear: both;
+}
+
+.tcMenuFly.tcMenuFlylevel1 > li {
+	float: left;
+	margin: 0;
+	margin-left: 5px;
+	margin-right: 5px;
+	display: block;
+}
+
+.tcMenuFly.tcMenuFlylevel2 {
+	display: none;
+}
+
+.tcMenuFly.level1 .submenu {
+	display: none;
+	visibility: hidden;
+	height: 0;
+}
+
+.tcMenuFly .submenu {
+	position: relative;
+	width: 100%;
+	height: auto;
+	display: none;
+	padding-right: 14px;
+	padding-bottom: 10px;
+}
+
+#fancybox-content .submenu ul {
+	list-style-type: none;
+}
+
+.tcMenuFlyToShow .subcolumns {
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: white;
+	border: 0.5px solid #c0c0c0;
+}
+
+.tcMenuFlyNav {
+	display: block;
+	margin-right: 5px;
+	float: left;
+}
+
+.tcMenuFlyNext.tcMenuFlyNav {
+	margin-left: 5px;
+}
+
+.tcMenuFly .detail {
+	display: none;
+}
+
+.tcMenuFlyFancybox #fancybox-left {
+	width: 5%;
+}
+
+.tcMenuFlyFancybox #fancybox-right {
+	width: 5%;
+}
+
+.tcMenuFlyFancybox

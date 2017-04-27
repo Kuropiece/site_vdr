@@ -1,0 +1,89 @@
+        //var $j = jQuery.noConflict();
+			
+		$(document).ready(function() {
+
+
+		
+
+
+
+		//AFFICHAGE DU BLOC DU SOUS-MENU
+
+		$('.bouton-sousmenu').click(function() {
+		if($(this).is(".boutonsousmenuSelected")){
+		$('div.sousmenu-content').slideUp('normal');
+		$(this).removeClass().addClass('row bouton-sousmenu');
+		$('div.sousmenu-bas').slideUp('normal');
+		}
+		else{
+		$(".boutonsousmenuSelected").removeClass().addClass('row bouton-sousmenu');
+		$(this).removeClass().addClass('row boutonsousmenuSelected');
+		$('div.sousmenu-content').slideDown('normal');
+		$('div.sousmenu-bas').slideDown('normal');
+		}
+		});
+		
+
+
+		//POUR LES MENUS ACCORDEON
+		
+		//H2 DEROULANT
+		$('.interieur-accordeon .csc-header').click(function() {
+			if ($(this).is(".accordionButtonSelected")) {
+//				$('.interieur-accordeon .bodytext').slideUp('normal');
+				$('.interieur-accordeon div').siblings('*').slideUp('normal');
+				$(this).removeClass().addClass('accordionButton');
+			} else {
+//				$('.interieur-accordeon .bodytext').slideUp('normal');
+				$('.interieur-accordeon div').siblings('*').slideUp('normal');
+//				$(this).next().slideDown('normal');
+				$(this).siblings('*').slideDown('normal');
+				$('div.accordionButtonSelected').removeClass().addClass('accordionButton');
+				$(this).removeClass().addClass('accordionButtonSelected');
+			}
+		});
+		
+
+
+		
+		
+		//MASQUER LES DIV AU CHARGEMENT DE LA PAGE
+		
+		$("div.sousmenu-content").hide();
+		$("div.sousmenu-bas").hide();
+		
+			// AFFICHAGE TITRE (LEGENDE) D'UNE IMAGE AFFICHEE AVEC FANCYBOX
+
+	$(".jqfancybox").fancybox({
+		"padding" : 0,
+		"speedIn" : 300,
+		"speedOut" : 300,
+		"changeSpeed" : 300,
+		"transitionIn" : "elastic",
+		"transitionOut" : "elastic",
+		"titlePosition" : "over",
+		"titleShow" : true,
+		"easingIn" : "swing",
+		"easingOut" : "swing",
+		"showCloseButton" : true,
+		"showNavArrows" : true,
+		"enableEscapeButton" : true,
+		"overlayShow" : true,
+		"overlayOpacity" : 0.4,
+		"overlayColor" : "#666",
+		"centerOnScroll" : false,
+		"hideOnContentClick" : true,
+		"onComplete" : function() {
+			$("#fancybox-wrap").hover(function() {
+				$("#fancybox-title").show();
+			}, function() {
+				$("#fancybox-title").hide();
+			});
+		},
+		"titleFormat" : function(title, currentArray, currentIndex, currentOpts) {
+			return '<span id="fancybox-title-over">' + title + '</span>';
+		}
+	});
+		
+		
+		});

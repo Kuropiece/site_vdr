@@ -1,0 +1,155 @@
+/* modul1-1.css */
+
+#hpw_0, #hpw_1, #hpw_2 {
+	color:#666;
+}
+p.hpw_copy a{
+	text-decoration:none;
+	color: #cccccc;
+
+}
+p.hpw_copy a:hover {
+	color:#FFFFFF;
+}
+#meteo {
+
+}
+
+#hpw {
+	clear:both;
+   margin: 10px 0 0 0px;
+   *margin-top:0px;
+   font-size:11px;
+   line-height:11px;
+   }
+
+#hpw_0, #hpw_1 {
+   /*background-color: #ffffff;*/
+   /*border-right: 1px solid #E0E0E0;*/
+   display: block;
+   float: left;
+   width: 72px;
+   color:white;
+   margin-top:18px;
+   }
+
+#hpw_2 {
+   /*background-color: #ffffff;*/
+   display: block;
+   float: left;
+   width: 56px;
+   color:white;
+   margin-top:18px;
+  }
+
+#hpw_3, #hpw_4, #hpw_5, #hpw_6 {
+   display: none;
+   }
+
+p.hpw_subtitle {
+   display: none;
+   }
+
+.hpw_date_short {
+   /*background-color: #ffffff;*/
+   display: auto;
+   float:left;
+   font-weight: bold;
+   text-align: center;
+   }
+
+.hpw_date_long {
+   display: none;
+   }
+
+.hpw_comma {
+   display: none;
+   }
+
+.hpw_date_exp {
+   display: none;
+   }
+
+.hpw_date_num {
+   display: none;
+   }
+
+#hpw_img_0, #hpw_img_1, #hpw_img_2 {
+	margin-top:-30px;
+   background-position: 40%;
+   background-repeat: no-repeat;
+   display: block;
+   height: 30px;
+   }
+
+#hpw_img_3, #hpw_img_4, #hpw_img_5, #hpw_img_6 {
+   display: none;
+   }
+
+.hpw_txt {
+   display: none;
+   }
+
+.hpw_temp_0 {
+	/*margin-top:12px;*/
+   /*background-color: #ffffff;*/
+   display: auto;
+   float:left;
+   font-size: 0.9em;
+   text-align: center;
+   width:26px;
+   }
+#hpw_0 {
+	width:60px;
+}
+#hpw_0 .hpw_date_short {
+	padding-left:10px;
+}
+.hpw_temp_min {
+	margin-top:0px;
+   /*background-color: #ffffff;*/
+   display: auto;
+   float: left;
+   font-size: 0.9em;
+   text-align: right;
+   width: 17px;
+   }
+
+.hpw_temp_delim {
+   margin-top:0px;
+   /*background-color: #ffffff;*/
+   display: auto;
+   float: left;
+   font-size: 0.9em;
+   text-align: center;
+   width: 6px;
+   }
+
+.hpw_temp_max {
+   /*background-color: #ffffff;*/
+   margin-top:0px;
+   display: auto;
+   font-size: 0.9em;
+   text-align: left;
+   float:left;
+   }
+
+p.hpw_copy {
+	font-size: 0.8em;
+	text-align:left;
+	margin-left:210px;
+	color:#FFFFFF;
+	padding-top:17px;
+   }
+
+p.hpw_copy a {
+   text-decoration: none;
+   }   
+
+#modul2-1,
+#modul2-2,
+#modul3a-1,
+#modul3a-2,
+#modul3b-1 {
+    display: none;
+    }

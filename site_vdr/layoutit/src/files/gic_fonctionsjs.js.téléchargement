@@ -1,0 +1,552 @@
+/**
+Date modification: 04.07.2011
+Ajout de getRoot et getLang pour d�tecter la langue pour situemoi
+**/
+
+
+function tableaudebord(labelTB,urlTB)
+{
+if (urlTB=="")
+	{
+	document.write('<b><Erreur no commune</b>')
+	}
+else
+{
+
+carte="tb"; //variable utilis�e pour nommer les id, les ancres
+tbleft="25px"; //position du iframe
+tbtop="25px";
+tbwidth="850px"; //largeur du calque dans le  iframe
+tbheight="550px";
+tbifwidth="840px"; //largeur du iframe
+tbifheight="520px";
+
+document.write('<img height=1 src="/images/espaceur.gif" width=1>'
++'<div id="tb" style="visibility:hidden;height:'+tbheight+';BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; Z-INDEX: -100; LEFT:'+tbleft+'; BORDER-LEFT: black 1px solid; WIDTH: '+tbwidth+'; BORDER-BOTTOM: black 1px solid; POSITION: absolute; TOP: '+tbtop+';  BACKGROUND-COLOR: #ffffff"><DIV style="FLOAT: right">'
++'<a class=d2w-url-10 href="#" onclick="montre(\''+carte+'\',false,\''+urlTB+'\')">Fermer <img src="/d2wceg/imagesclient/close.jpg" align=absMiddle border=0></a></div>'
++'<iframe id="'+carte+'Frame" src="" frameBorder=0 width='+tbifwidth+' height='+tbifheight+' ></iframe>'
++'</div>');	
+
+
+	document.write('<div><a class="d2w-texte-1" href="#'+carte+'" onclick="montre(\''+carte+'\',true,\''+urlTB+'\');"><img src="/d2wceg/imagesclient/zoom_tableau_de_bord.gif" border="0" ></a><a class="d2w-texte-2" href="#'+carte+'" onclick="montre(\''+carte+'\',true,\''+urlTB+'\');">'+labelTB+'</a></div>');
+}
+}
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+
+
+/**
+Date modification: 23.11.2007
+Situe Moi avec LIGHTBOX IFRAME
+**/
+function situemoiLBIF(vcn,vx, vy)
+{
+if (vcn > 100 || vcn < 1)
+	{
+	document.write('<b><Erreur no commune</b>')
+	}
+else
+{
+// Correciton nouvelles coordonnées depuis le 14.11.2016
+	
+	if (vx < 2000000) {vx = vx+2000000}
+	if (vy < 1000000) (vy = vy+1000000)
+		
+
+//ECRIRE LE CALQUE COMME IL FAUT AU CHARGEMENT.
+vct = communes(vcn); //retourne le nom de commune
+carte="carte";
+urlsitn = "http://sitn.ne.ch/"+vct+".html?commune="+vct+"&theme=adresse&x="+vx+"&y="+vy+"&echelle=15000"
+document.write('<a class="d2w-texte-2" href="'+urlsitn+'" rel="lightbox|500|650"><img src="/fileadmin/sites/gic/system/img/logoMap.png" border="0" width="24px" height="24px"></a><a class="d2w-texte-2" href="'+urlsitn+'" rel="lightbox|500|650">&nbsp;Plan interactif</a>');
+}}
+
+/**
+Date modification: 23.08.2007
+
+**/
+function situemoi_div(vcn,vx, vy)
+{
+if (vcn > 100 || vcn < 1)
+	{
+	document.write('<b><Erreur no commune</b>')
+	}
+else
+{
+	// Correciton nouvelles coordonnées depuis le 14.11.2016
+	
+	if (vx < 2000000) {vx = vx+2000000}
+	if (vy < 1000000) (vy = vy+1000000)
+		
+
+//ECRIRE LE CALQUE COMME IL FAUT AU CHARGEMENT.
+
+
+vct = communes(vcn); //retourne le nom de commune
+carte="carte";
+urlsitn = "http://sitn.ne.ch/"+vct+".html?commune="+vct+"&theme=adresse&x="+vx+"&y="+vy+"&echelle=15000"
+document.write('<img height=1 src="/images/espaceur.gif" width=1>'
++'<div id="carte" style="visibility:hidden;height:auto;BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; Z-INDEX: -100; LEFT: 200px; BORDER-LEFT: black 1px solid; WIDTH: 650px; BORDER-BOTTOM: black 1px solid; POSITION: absolute; TOP: 270px;  BACKGROUND-COLOR: #ffffff"><DIV style="FLOAT: right">'
++'<a class=d2w-url-10 href="#" onclick="montre(\''+carte+'\',false,\''+urlsitn+'\')">Fermer <img src="/d2wceg/imagesclient/close.jpg" align=absMiddle border=0></a></div>'
++'<iframe id="'+carte+'Frame" src="" frameBorder=0 width=650 height=618 ></iframe>'
++'</div>');	
+
+
+	document.write('<a class="d2w-texte-2" href="#carte" onclick="montre(\''+carte+'\',true,\''+urlsitn+'\');"><img src="/fileadmin/sites/gic/system/img/logoMap.png" border="0" width="24px" height="24px"></a><a class="d2w-texte-2" href="#carte" onclick="montre(\''+carte+'\',true,\''+urlsitn+'\');">&nbsp;'+v_liblien+'</a>');
+}
+}
+function montre(id,on,urlsitn) {
+		if (on){
+			document.getElementById(id).style.visibility='visible';
+			document.getElementById(id).style.zIndex ='100';
+			document.getElementById(id+"Frame").src = urlsitn;
+		} else 	{
+			document.getElementById(id).style.visibility='hidden';
+			document.getElementById(id).style.zIndex ='-100';
+			document.getElementById(id+"Frame").src = "";
+		}
+}
+function getRoot() {
+    var host =     window.location.hostname;
+
+    var root = '';
+    
+    switch (host) {
+        case 'localhost':
+            root = 'http://localhost:10088/xxx/';
+            break;
+        case 'www.xxx.ch':
+            root = 'http://www.xxx.ch/'
+            break;
+    }
+            
+    return root;
+}
+
+function getLang(){
+    // var root = getRoot();
+    var location = window.location.toString();
+
+    // Remove the root, to be sure that the lang part of the url is at the begining !
+    // location = location.replace(root, '');
+    
+    
+    var realUrl = false;
+
+    var fr = (location.indexOf('/fr/') > -1) ;
+    var de = (location.indexOf('/de/') > -1);
+	var en = (location.indexOf('/en/') > -1);
+    var it = (location.indexOf('/en/') > -1);
+    
+    if (fr || de || en || it) {
+        realUrl = true;
+    }
+    
+    // var param = jQuery.url.param("L");
+    // var lang;
+     // if (!realUrl) {
+     //  if (param == null) {
+     //     lang = 0;
+     // }
+     //   else {
+      //     lang = param;
+     //   }
+    // }
+    // else {
+		var lang
+        if (fr) 
+            lang = 0;
+        if (de) 
+            lang = 1;
+        if (en) 
+            lang = 2;
+    //}   
+    return lang;
+}
+
+function situemoi(vcn,vx, vy)
+{
+	v_langue = parseInt(getLang());
+	// var v_langue = 0
+	v_liblien = '';
+	switch (v_langue) {
+	        case 0:
+	            v_liblien = "Plan interactif";
+				break;
+			case 1:
+				v_liblien = "Interaktive Karte"
+	            break;
+	        case 2:
+	            v_liblien = "Interactive Map"
+	            break;
+			default:
+				v_liblien = "Plan interactif";
+	    }
+	
+	
+	if (vcn > 100 || vcn < 1) {
+		document.write('<b><Erreur no commune</b>')
+	}
+	else {
+// Correciton nouvelles coordonnées depuis le 14.11.2016
+	
+	if (vx < 2000000) {vx = vx+2000000}
+	if (vy < 1000000) (vy = vy+1000000)
+		
+		document.write('<A class="d2w-texte-2" href="javascript:opencarto('+vcn+','+vx+','+vy+')"><img src="/fileadmin/sites/gic/system/img/logoMap.png" border="0" width="24px" height="24px">&nbsp;'+v_liblien+'</A>');
+	}
+}
+function situemoi_old_190707(vcn,vx, vy)
+{
+if (vcn > 62 || vcn < 1)
+	{
+	document.write('<b><Erreur no commune</b>')
+	}
+else
+{
+document.write('<A class="d2w-texte-2" href="javascript:opencarto('+vcn+','+vx+','+vy+')"><img src="/fileadmin/sites/gic/system/img/logoMap.png" border="0" width="24px" height="24px">&nbsp;'+v_liblien+'</A>');
+}
+}
+function opencarto(vcn,vx,vy)
+{
+var vct = ""
+
+var commune = new Array (100);
+for (i=0; i<100;i++) {commune [i] = ""}
+
+commune [0] = "index";
+commune [1] = "neuchatel";
+commune [2] = "hauterive";
+commune [3] = "saint-blaise";
+commune [4] = "marin-epagnier" 
+commune [5] = "la-tene";
+commune [6] = "cornaux";
+commune [7] = "cressier";
+commune [8] = "index";
+commune [9] = "lelanderon";
+commune [10] = "index";
+commune [11] = "boudry";
+commune [12] = "cortaillod";
+commune [13] = "colombier";
+commune [14] = "auvernier";
+commune [15] = "peseux";
+commune [16] = "corcelles-cormondreche";
+commune [17] = "bole";
+commune [18] = "rochefort";
+commune [19] = "index";
+commune [20] = "bevaix";
+commune [21] = "gorgier";
+commune [22] = "saint-aubin-sauges";
+commune [23] = "index";
+commune [24] = "index";
+commune [25] = "index";
+commune [26] = "motiers";
+commune [27] = "couvet";
+commune [28] = "travers";
+commune [29] = "index";
+commune [30] = "index";
+commune [31] = "fleurier";
+commune [32] = "buttes";
+commune [33] = "cote-aux-fees";
+commune [34] = "saint-sulpice";
+commune [35] = "index";
+commune [36] = "index";
+commune [37] = "cernier";
+commune [38] = "chezard-saint-martin";
+commune [39] = "index";
+commune [40] = "index";
+commune [41] = "index";
+commune [42] = "index";
+commune [43] = "index";
+commune [44] = "fontaines";
+commune [45] = "index";
+commune [46] = "index";
+commune [47] = "leshauts-geneveys";
+commune [48] = "index";
+commune [49] = "valangin";
+commune [50] = "index";
+commune [51] = "lesgeneveys-sur-coffrane";
+commune [52] = "index";
+commune [53] = "index";
+commune [54] = "lesbrenets";
+commune [55] = "index";
+commune [56] = "labrevine";
+commune [57] = "index";
+commune [58] = "lesponts-de-martel";
+commune [59] = "index";
+commune [60] = "index";
+commune [61] = "index";
+commune [62] = "lasagne";
+commune [71] = "latene";
+commune [72] = "val-de-travers";
+commune [73] = "val-de-ruz";
+
+vct = commune [vcn];
+
+if (vct == "")
+	{
+	vct = "neuchatel"
+	}
+
+MM_openBrWindow('http://sitn.ne.ch/sitn_php/communes/communes.php?nocom='+vcn+'&x='+vx+'&y='+vy+'&echelle=6','guichet','resizable=yes,scrollbars=yes,width=525,height=456')
+
+//MM_openBrWindow('http://sitn.ne.ch/mobile/?theme=mobile_default&baselayer_ref=plan_ville&map_x='+vx+'&map_y='+vy+'&map_zoom=6&map_crosshair=1&tree_layers=','guichet','resizable=yes,scrollbars=yes,width=800,height=600')
+
+
+}
+
+function contactemoi(vprenom,vnom)
+{
+if ((vnom == undefined) )
+	{
+		document.write(' <a href="/contact.asp?prenom='+vprenom+'&nom='+vnom+'" ><img src="/d2wceg/imagesclient/mail3.gif" border="0" align="absmiddle" alt="'+vprenom+ '"></a>');
+
+	}
+else
+{
+		document.write(' <a href="/contact.asp?prenom='+vprenom+'&nom='+vnom+'" ><img src="/d2wceg/imagesclient/mail3.gif" border="0" align="absmiddle" alt="'+vprenom+ ' ' +vnom+'"></a>');	
+}
+
+}
+
+
+function allemand()
+{
+var v_url=location.href;
+document.write("<A href='"+v_url+"'>lien</A>");
+
+}
+
+/*
+Objet: entrer le num�ro de commune renvoit le nom de la commune
+Cr�ation. 29  juin 2007
+*/
+function communes(v_num){
+
+var commune = new Array (100);
+for (i=0; i<100;i++) {commune [i] = ""}
+
+commune [0] = "index";
+commune [1] = "neuchatel";
+commune [2] = "hauterive";
+commune [3] = "saint-blaise";
+commune [4] = "marin-epagnier" 
+commune [5] = "la-tene";
+commune [6] = "cornaux";
+commune [7] = "cressier";
+commune [8] = "index";
+commune [9] = "lelanderon";
+commune [10] = "index";
+commune [11] = "boudry";
+commune [12] = "cortaillod";
+commune [13] = "colombier";
+commune [14] = "auvernier";
+commune [15] = "peseux";
+commune [16] = "corcelles-cormondreche";
+commune [17] = "bole";
+commune [18] = "rochefort";
+commune [19] = "index";
+commune [20] = "bevaix";
+commune [21] = "gorgier";
+commune [22] = "saint-aubin-sauges";
+commune [23] = "index";
+commune [24] = "index";
+commune [25] = "index";
+commune [26] = "motiers";
+commune [27] = "couvet";
+commune [28] = "travers";
+commune [29] = "index";
+commune [30] = "index";
+commune [31] = "fleurier";
+commune [32] = "buttes";
+commune [33] = "cote-aux-fees";
+commune [34] = "saint-sulpice";
+commune [35] = "index";
+commune [36] = "index";
+commune [37] = "cernier";
+commune [38] = "chezard-saint-martin";
+commune [39] = "index";
+commune [40] = "index";
+commune [41] = "index";
+commune [42] = "index";
+commune [43] = "index";
+commune [44] = "fontaines";
+commune [45] = "index";
+commune [46] = "index";
+commune [47] = "leshauts-geneveys";
+commune [48] = "index";
+commune [49] = "valangin";
+commune [50] = "index";
+commune [51] = "lesgeneveys-sur-coffrane";
+commune [52] = "index";
+commune [53] = "index";
+commune [54] = "lesbrenets";
+commune [55] = "index";
+commune [56] = "labrevine";
+commune [57] = "index";
+commune [58] = "lesponts-de-martel";
+commune [59] = "index";
+commune [60] = "index";
+commune [61] = "index";
+commune [62] = "lasagne";
+commune [71] = "latene";
+commune [72] = "val-de-travers";
+
+return (commune[v_num]);
+}
+	
+
+/*
+Objet: afficher la carte stin dans un iframe 650x518 px
+Création. 29 juin 2007
+*/
+function afficherplansitn(v_num,v_taille)
+{
+	var vct = "index";
+
+vct=communes(v_num);
+/*pas de test d'erreur nom écrit en dur dans direct2web */
+
+document.write('<DIV id=Carte style="BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; Z-INDEX: 3; BORDER-LEFT: black 1px solid; WIDTH: 535px; BORDER-BOTTOM: black 1px solid; POSITION: absolute; TOP: 150px; HEIGHT: auto; BACKGROUND-COLOR: #ffffff"><DIV style="FLOAT: right"><A class=d2w-url-10 href="javascript:history.go(-1)">Fermer&nbsp;</A></DIV>'
++'<IFRAME src="http://sitn.ne.ch/sitn_php/communes/communes.php?nocom='+v_num+'" frameBorder=0 width=525 height=470 ></IFRAME>'
++'</DIV>');	
+}
+
+/* Fonction d'arrondi � 5 cts */
+	function arr05(montant)
+	{
+	montant = Math.round(montant/0.05)*0.05;
+	montant = Math.round(montant*100)/100;
+	return montant;
+	}	
+
+/* Fonction convertissant un montant en �quivalent litt�ral, arrondi � 5cts et tronqu� � 2 chiffres apr�s la virgule */
+	function nbtotxt(montant)
+	{
+	txtmontant = '';
+	montant = arr05(montant);
+	if (montant == Math.round(montant))
+	    {txtmontant = montant + '.00';}
+	else
+		{
+		if (montant == (Math.round(montant*10)/10))
+	    	{
+			txtmontant = montant + '0';}
+		else
+	    	{			
+			txtmontant = montant;}
+		}
+	return (txtmontant)	;
+	}
+
+
+/************************************************************
+TEST XML JS                                                                                          
+Objet: afficher la carte stin dans un iframe 650x518 px
+Test: utilise les fonctions js/xml xmlhttprequest .
+Cr�ation. 29 juin 2007
+Modification: 2 juillet 2007
+sous firefox 1.5: Erreur�: uncaught exception: Permission refus�e d'appeler la m�thode XMLHttpRequest.open
+/************************************************************/
+var xmlhttp, vname, vnum, vtaille
+
+function loadXMLDoc(url) 
+{
+xmlhttp=null
+
+// code for Mozilla, etc.
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest()
+  }
+// code for IE
+else if (window.ActiveXObject)
+  {
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP")
+  }
+if (xmlhttp!=null)
+  {
+  xmlhttp.onreadystatechange=onResponse;
+  xmlhttp.open("GET",url,true);
+  xmlhttp.send(null);
+  }
+else
+  {
+  alert("Your browser does not support XMLHTTP.")
+  }
+}
+
+function checkReadyState(obj)
+{
+  if(obj.readyState == 4)
+  {
+    if(obj.status == 200)
+    {
+      return true;
+    }
+    else
+    {
+      alert("Problem retrieving XML data");
+    }
+  }
+}
+
+function onResponse() 
+{
+  
+  if(checkReadyState(xmlhttp))
+  {
+  var response = xmlhttp.responseXML.documentElement;
+  txt=""
+  x=response.getElementsByTagName("commune")
+  for (i=0;i<x.length;i++)
+    {
+	xx=x[i].getElementsByTagName("numero")
+		if (xx[0].firstChild.data==vnum)
+		{
+			xx=x[i].getElementsByTagName("nom")
+			txt=xx[0].firstChild.data;
+		}
+	}
+vname=txt
+
+document.write('<IMG height=500 src="/images/espaceur.gif" width=1>'
++'<DIV id=Carte style="BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; Z-INDEX: 3; LEFT: 200px; BORDER-LEFT: black 1px solid; WIDTH: 650px; BORDER-BOTTOM: black 1px solid; POSITION: absolute; TOP: 200px; HEIGHT: auto; BACKGROUND-COLOR: #ffffff"><DIV style="FLOAT: right"><A class=d2w-url-10 href="javascript:history.go(-1)">Fermer <IMG src="/images/close.jpg" align=absMiddle border=0></A></DIV>'
++'<IFRAME src="http://sitn.ne.ch/'+vname+'.html?noComCant='+vnum+'&theme=adresse&taille='+vtaille+'" frameBorder=0 width=650 height=618 ></IFRAME>'
++'</DIV>');	
+	//alert('test javascript/xml, le num�ro de la commune est '+vnum+' et le nom de la commune est '+vname)
+
+  }
+}
+
+
+/*afficher la carte stin dans un iframe*/
+function afficherplanstinXML(v_num,v_taille)
+{	
+	vnum = v_num
+	vtaille = v_taille
+	//loadXMLDoc("http://commune-d2w.ne.ch/communes.xml")
+	loadXMLDoc("/communes.xml")
+	//alert('test javascript/xml, le num�ro de la commune est '+vnum+' et le nom de la commune est '+vname)
+}
+
+
+function afficheregov(v_url,v_hauteur)
+{
+
+
+document.write('<IMG height=500 src="/images/espaceur.gif" width=1>'
++'<DIV id=Carte style="BORDER-RIGHT: black 0px solid; BORDER-TOP: black 0px solid; Z-INDEX: 3; LEFT: 230px; BORDER-LEFT: black 0px solid; WIDTH: 650px; BORDER-BOTTOM: black 0px solid; POSITION: absolute; TOP: 200px; HEIGHT: auto; BACKGROUND-COLOR: #ffffff">'
++'<IFRAME src='+v_url+' frameBorder=0 width=650 height='+v_hauteur+' ></IFRAME>'
++'</DIV>');	
+}
+
+function afficheregovgic(v_url,v_hauteur)
+{
+document.write('<IMG height=500 src="/images/espaceur.gif" width=1>'
++'<DIV id=Carte style="BORDER-RIGHT: black 0px solid; BORDER-TOP: black 0px solid; Z-INDEX: 3; LEFT: 220px; BORDER-LEFT: black 0px solid; WIDTH: 450px; BORDER-BOTTOM: black 0px solid; POSITION: absolute; TOP: 375px; HEIGHT: auto; BACKGROUND-COLOR: #ffffff">'
++'<IFRAME src='+v_url+' frameBorder=0 width=650 height='+v_hauteur+' ></IFRAME>'
++'</DIV>');	
+}
+

@@ -1,0 +1,1066 @@
+/****************************************************************/
+/*   Design:      GIC 4.0                                       */
+/*   Copyright:   Ville de Neuchâtel                            */
+/*   Name:        GIC                                           */
+/*   Graphisme:   CEG / Neuchâtel                               */
+/*   HTML/CSS:    CEG / Neuchâtel                               */
+/*   Description: Surcharge des styles Bootstrap                */
+/*--------------------------------------------------------------*/
+/*   Date:        MAI   2013                                    */
+/****************************************************************/
+
+html {
+	background:#4f4f4f;
+	height:auto;
+}
+body {
+	font-family:"Open Sans", Sans-Serif;
+	-webkit-font-smoothing: subpixel-antialiased !important;
+	color:#000000;
+	font-weight:400;
+	background-color: #767676;
+	font-size:13px;
+	line-height:18px;
+}
+h1 {
+	font-family:"Open Sans Condensed", Sans-serif;
+	font-size:35px;
+	color:#000000;
+	font-weight:300;
+	text-transform:uppercase;
+}
+h4 {
+	font-size:16px;
+	color:#888;
+}
+a {
+
+}
+a:hover {
+	color:#000000;
+}
+.contenu a {
+	color:#228ea8;
+}
+#menu-fixe {
+	color:#FFFFFF;
+	display:table-cell;
+	padding-right:6px;
+	font-size:11px;
+}
+
+#search {
+	display:table-cell;
+	vertical-align: top;
+	padding-top:2px;
+	width:177px;
+	font-size:13px;
+}
+#language {
+	display:table-cell;
+	font-size:11px;
+}
+#language ul {
+	margin: 0 0 10px 1px;
+}
+#language li {
+	padding-right:5px;
+	border-left:none;
+}
+
+#language li+li  {
+	padding-right:5px;
+	border-left:1px solid #ccc;
+}
+#language li.last-lang {
+	border-right:none;
+	padding-right:0;
+}
+#language li.last-lang a {
+}
+#language li a {
+	padding-left:5px;
+	color:#ccc;
+}
+#language li.active a {
+	font-weight:bold;
+	color:#fff;
+}
+.sous-menu a {
+	color:#7f7f7f;
+}
+.sous-menu a:hover, .act {
+	color:#000000;
+}
+
+.main-container {
+	max-width:960px;
+	margin:auto;
+	box-shadow: 1px 1px 12px #555;
+	background:url(../img/bg-header.png) no-repeat #FFFFFF;
+}
+.footer .main-container {
+	background-color:#e4e4e4;
+	margin-top:20px;
+	background:none;
+}
+
+.footer, .footer-copyright {
+	background:#4f4f4f;}
+
+
+.menu-secondaire ul {
+	padding-top:10px;
+	float:right;
+}
+.menu-secondaire a {
+	color:#FFFFFF;
+}
+.menu-secondaire li {
+	display:inline;
+	color:#FFFFFF;
+}
+
+.identity {
+	position: absolute;
+	color:#FFFFFF;	
+	font-size:56px;
+	width:auto;
+}
+h1.nom-commune {
+	padding-left:10px;
+	color: #FFFFFF;
+	font-size: 56px;
+	font-family: "Open Sans", Sans-Serif;
+	font-weight:400;
+	text-transform:none;
+	display:inline;
+}
+.relative {
+	position:relative;
+}
+.menu-secondaire input {
+	height:auto;
+	padding:0;
+	margin-bottom:2px;
+	margin-left:5px;
+}
+.box {
+	display:block;
+	height:45px;
+	box-shadow: 3px 3px 5px #ccc;
+	margin-top:10px;
+}
+
+.inside .couleur1, .inside .couleur2, .inside .couleur3, .inside .couleur4, .inside .couleur5 {
+	opacity:0.5;
+}
+.inside .couleur-active, .inside .couleur1:hover, .inside .couleur2:hover, .inside .couleur3:hover, .inside .couleur4:hover, .inside .couleur5:hover {
+	opacity:1;
+}
+
+.box h1 {
+	font-family:"Open Sans Condensed", Sans-serif;
+	font-size:35px;
+	color:#FFFFFF;
+	font-weight:300;
+	text-transform:uppercase;
+}
+.sous-menu {
+	background:url(../img/box-arrondi.png) no-repeat bottom;
+	height:165px;
+}
+
+.sous-menu h2 {
+	margin:0;
+	font-size:13px;
+	text-transform:none;
+	line-height:15px !important;
+	font-weight:300;
+	padding-left:35px;
+	margin-bottom:3px;
+}
+.sous-menu {
+	padding-top:8px;
+	padding-bottom:5px;
+}
+.liste-actus, .liste-communiques {
+	background:#f5f5f5;
+	padding-left:10px;
+	padding-top:10px;
+}
+.liste-communiques {
+	min-height:200px;
+}
+.news_all {
+	text-align:right;
+	padding-bottom:5px;
+	font-size:11px;
+}
+.communiques {
+	position:relative;
+}
+.communiques .news_all {
+	position:absolute;
+	display:block;
+	left:52%;
+	padding-top:30px;
+	}
+.rss_com {
+    position:absolute;
+    display:block;
+    left:46%;
+    padding-top:35px;
+    font-size:12px;
+    line-height:10px;
+}
+.liste-actus .actu {
+	padding-bottom:10px;
+}
+.actu {
+	clear:both;
+}
+.actu .date {
+	float:left;
+	width:30px;
+}
+.actu article {
+	float:right;
+	width:410px;
+}
+.liste-communiques .actu article {
+	width:170px;
+}
+.inside .liste-communiques .actu article {
+	width:auto;
+}
+.liste-actus .day, .liste-communiques .day, .liste-communiques .month, .liste-actus .month, .liste-communiques .year, .liste-actus .year {
+	display:block;
+	font-family: "Open Sans Condensed", Sans serif;
+	text-align:center;
+}
+.liste-communiques .day, .liste-actus .day {
+	font-weight:300px;
+	font-size:24px;
+	color:#5c5353;
+}
+.liste-communiques .month, .liste-communiques .year, .liste-actus .month, .liste-actus .year {
+	font-weight:700;
+	font-size:14px;
+	color:#b9b9b9;
+	line-height:15px;
+}
+.actu h2, .actu h2 a {
+	color:#5c5353;
+	font-family: "Open Sans Condensed", Sans serif;
+	font-size:18px;
+	font-weight:300;
+	margin:0;
+	line-height:21px;
+	margin-bottom:5px;
+}
+.actu h2 a:hover {
+	text-decoration:none;
+	color:#000000;
+}
+.actu p {
+	margin:0;
+}
+.et-aussi h2, .themes h2 {
+	padding:5px;
+	border: 1px solid #FFFFFF;
+	font-size:18px;
+	margin:0;
+	font-weight:300;
+	font-family: "Open Sans Condensed", Sans serif;
+	color:#585858;
+	line-height:20px;
+	display:block;
+	background:#f5f5f5;
+}
+.themes h2 {
+	background:#e9e8e8;
+}
+.themes h2:hover {
+	background:#f5f5f5;
+}
+.et-aussi h2:hover {
+	background:#e9e8e8;
+}
+.et-aussi h2 a {
+	background:url(../img/fleche-claire.png) no-repeat right center;
+	display:block;
+}
+.et-aussi h2 a:hover {
+	background:url(../img/fleche-foncee.png) no-repeat right center;
+	display:block;
+}
+.themes h2 a {
+	background:url(../img/fleche-claire.png) no-repeat right center #e9e8e8;
+	display:block;
+}
+.themes h2 a:hover {
+	background:url(../img/fleche-foncee.png) no-repeat right center #f5f5f5;
+	display:block;
+}
+.et-aussi a, .themes a {
+	color:#7f7f7f;
+}
+.et-aussi a:hover, .themes a:hover {
+	text-decoration:none;
+	color:#000000;
+}
+.adresse {
+	background:#5c5c5c;
+	color:#ffffff;
+	padding:10px;
+	text-align:right;
+}
+.adresse a {
+	color:#FFFFFF;
+}
+.adresse blockquote {
+	border:none;
+}
+.adresse blockquote p {
+	font-size:1em !important;
+}
+.horaires {
+	font-size:12px;
+	line-height:15px;
+	text-align:right;
+	padding-top:90px;
+}
+.horaires p {
+	margin:auto;
+	margin-top:5px;
+}
+.horaires h2 {
+	font-size:12px;
+	margin:0;
+	line-height:15px;
+	text-transform:uppercase;
+}
+.copyright {
+	color:#FFFFFF;
+	font-size:12px;
+	text-align:center;
+	display:block;
+}
+.footer .main-container {
+	background:#e4e4e4;
+}
+.logos-footer img {
+	padding:10px;
+}
+.footer-copyright .main-container {
+	max-width: 960px;
+	margin: auto;
+	box-shadow: 1px 1px 12px #555;
+	background: none;
+	padding-top:10px;
+}
+
+/* AJOUT POUR PASSAGE EN BOOTSTRAP 3 */
+.home {
+    background: url(../img/bg-header.png) no-repeat #FFFFFF;
+    background-size:100%;
+}
+.home .navbar {
+    margin-bottom:0 !important;
+    border:0;
+}
+.home .sous-menu {
+    background-size:100%;
+}
+/* INSIDE */
+.inside .nom-commune {
+	font-weight:300;
+	font-size:35px;
+	color:#5c5c5c;
+	padding-top:10px;
+	padding-left:0;
+} 
+.inside {
+
+	background:url(../img/bg-head-inside.png) no-repeat #FFFFFF;
+
+}
+.bouton-sousmenu, .boutonsousmenuSelected {
+	cursor:pointer;
+}
+.navigation {
+	padding-top:10px;
+}
+.navigation li li {
+	border-bottom:1px solid #dedede;
+	padding-top:5px;
+	padding-bottom:3px;
+}
+.navigation li li li {
+	border-bottom:0;
+	padding-top:0;
+	padding-bottom:0;
+}
+.navigation li li li a, .navigation li.level1actif li a {
+	background:none;
+	color:#7f7f7f;
+}
+.navigation ul {
+	list-style-type:none;
+	margin: 0 0 10px 0px;
+}
+.navigation ul ul ul {
+	margin:0;
+}
+.navigation li li a {
+	background:url(../img/fleche-claire.png) no-repeat 5px center;
+	padding-left:25px;
+	color:#7f7f7f;
+}
+.navigation li li a:hover, .navigation li.level1actif a, .actif, .courant {
+	background:url(../img/fleche-foncee.png) no-repeat 5px center;
+	color:#000000;
+	text-decoration:none;
+}
+.navigation li.level5 {
+	padding-left:10px;
+}
+.actif, .courant {
+	background-position:15px top;
+	font-weight:700;
+}
+
+li.level3.actif ul li.level4.courant a, li.level3.actif ul li.level4.actif a {
+	font-weight:700;
+}
+.level3.actif ul li.level4 a, li.level3.actif ul li.level4 a, li.level3.actif ul li.level4.actif ul li a {
+	font-weight:normal;
+}
+
+.navigation ul li a {
+	display: none;
+}
+.navigation li.level1actif ul li.level3actif a {
+	color:#000000;
+}
+.navigation ul li li a {
+	display: block;
+}
+.navigation .level3 {
+	font-size:1em;
+	padding-left:10px;
+}
+.navigation .level4 {
+	padding-left:10px
+}
+.navigation .level3, .navigation .level4 {
+	line-height:17px;
+}
+.inside .contenu h2 {
+	font-family: "Open Sans Condensed", Sans serif;
+	font-weight:300;
+	font-size:24px;
+	line-height:30px;
+	clear:both;
+}
+.liens-inside h1 {
+	font-size:1.5em;
+	margin-bottom:0;
+}
+.inside .date {
+	float:none;
+	width:auto;
+}
+.inside .day, .inside .month, .inside .year {
+	font-size:1em;
+	font-weight:700;
+	padding-right:3px;
+	color:#000;
+	display:inline !important;
+}
+
+.inside article {
+	float:none;
+}
+.inside .liste-communiques {
+	font-size:1em;
+	padding-bottom:8px;
+	margin-top:20px;
+}
+.inside .adresse {
+	margin-top:20px;
+}
+
+.inside .liste-communiques a {
+	text-decoration:none;
+	color:#5c5353;
+}
+
+.inside .liste-communiques a:hover {
+	text-decoration:none;
+	color:#000000;
+}
+.col1-50, .col2-50 {
+	display:inline-block;
+	width:47%;
+	vertical-align:top;
+}
+.col1-50 {
+	padding-right:10px;
+}
+.col2-50 {
+	padding-left:10px;
+}
+.col1-33, .col2-33, .col3-33 {
+	display:inline-block;
+	width:220px;
+	vertical-align: top;
+}
+.col1-33, .col2-33 {
+	margin-right:15px;
+}
+.col2-33, .col3-33 {
+}
+.col1-66 {
+	float:left;
+	display:table-cell;
+	width:66%;
+}
+.col2-6633 {
+	width:220px;
+	display:inline-block;
+	margin-left:15px;
+}
+.inside .actu h2 {
+	color: #aaa;
+	font-family: "Open Sans Condensed", Sans serif;
+	font-size: 16px;
+	font-weight: 700;
+	margin: 0;
+	line-height: 20px;
+	margin-bottom: 5px;
+}
+.inside date {
+	line-height:14px;
+}
+.inside .liste-communiques h2 {
+	font-family: "Open Sans Condensed", Sans serif;
+	font-size: 16px;
+	margin: 0;
+	line-height: 20px;
+	margin-bottom: 5px;
+	font-weight:700;
+}
+.inside .liste-communiques h3 {
+	font-size: 1em;
+	margin: 0;
+	line-height: 1.1em;
+	margin-bottom: 5px;
+	font-weight:400;
+}
+.inside .liste-communiques p {
+	margin:0;
+	line-height:16px;
+}
+.modules {
+	margin-top:20px;
+}
+.modules .fond-triangle1, .modules .fond-triangle2, .modules .fond-triangle3, .modules .fond-triangle4 {
+	background-position: top right;
+}
+.nom-commune a {
+	color:#999999;
+}
+.nom-commune a:hover {
+	color:#000000;
+	text-decoration:none;
+}
+.inside .contenu h3 {
+	font-weight:700;
+	font-size:1.2em;
+	line-height:1.3em;
+}
+.inside-titre-page {
+	font-size:2em;
+	font-weight:normal;
+	color:#aaaaaa;
+	margin:0;
+}
+
+
+/* GIC Info adminsitratives */
+
+.tx-gkhrssimport-pi1-rss_title, .tx-gkhrssimport-pi1-description, .tx-gkhrssimport-pi1-header, .tx-gkhrssimport-pi1-date {
+	display: none;
+}
+
+/* Calendriers */
+
+div.tx-cegcal-pi1 select#month {
+	width: 120px;
+	
+}
+div.tx-cegcal-pi1 select#year {
+	width: 80px;
+	
+}
+
+.tx-cal-controller {
+	clear:both;
+}
+
+/* Formulaire inscription evenements */
+legend {
+	border-bottom:none;
+	margin-bottom:0;
+}
+fieldset.tx-powermail-pi1_fieldset legend {
+font-weight: normal;
+color: #aaaaaa;
+}
+fieldset.tx-powermail-pi1_fieldset div legend {
+font-weight: bold;
+color: #515151;
+font-size:14px;
+text-transform:none;
+}
+.tx-srfreecap-pi2-cant-read {
+	display:block;
+	color:black;
+}
+input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"] {
+margin-bottom: 0px;
+font-size: 14px;
+line-height: 20px;
+color: #555;
+vertical-align: middle;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+.tx_powermail_pi1_fieldwrap_html_submit {
+text-align:right;
+
+}
+
+/* Zone promo */
+
+div.promos {
+	margin-top:20px;
+	
+}
+div.promos h3 {
+	margin-top:0;
+	font-size:13px;
+	line-height:15px !important;
+}
+blockquote p {
+	font-size:13px;
+}
+blockquote {
+padding: 0 0 0 0px;
+margin: 0 0 20px;
+border-left: 0px solid #eee;
+}
+.filters .span6 {
+	margin-left:0;
+}
+.filters label {
+	font-size:inherit;
+}
+div.tx-ceg-address .filters {
+	border: 0px solid #C6C6C6 !important;
+	background: none !important;
+	padding: 0px !important;
+	margin-bottom: 40px !important;
+	height: auto !important;
+}
+.filters input[type="text"], .filters select {
+	margin-bottom: 0 !important;
+}
+.filters .select2-container {
+	margin-bottom: 0px !important;
+}
+table.dataTable tr.odd {
+	background-color: #eee !important;
+}
+div.tx-ceg-address div.row.last .span6 {
+	width: 45% !important;
+}
+table.dataTable thead th {
+	border-top: 1px solid #dedede !important;
+	border-bottom: 1px solid #dedede !important;
+}
+table.dataTable tfoot th {
+	border-top: 1px solid #dedede !important;
+	border-bottom: 1px solid #dedede !important;	
+}
+div.row.last {
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.validate input[type="text"] {
+	width:95% !important;
+}
+.validate .wysihtml5-sandbox {
+	width:95% !important;
+	height:150px !important;
+}
+.validate label {
+	font-size:13px;
+	font-weight:bold;
+}
+.right {
+	text-align:right;
+}
+
+/* Formulaire relevé des compteurs */
+
+div.bloc-contenu legend {
+	left:2px;
+	top: 0;
+	padding: 5px;
+	width:auto !important;
+	font-size: 13px  !important;
+	line-height:20px !important;
+	background:none !important;
+	
+}
+div.bloc-contenu .powermail_legend {
+    color:#aaa;
+    font-size:18px !important;
+}
+
+div.bloc-contenu .powermail_label {
+    float:left;
+    width:200px;
+    font-weight:bold;
+}
+div.bloc-contenu .powermail_radio_legend, div.bloc-contenu .powermail_check_legend {
+    width:200px !important;
+    padding:0 !important;
+}
+span.mandatory {
+    color:red;
+}
+.powermail_radio {
+    float:left;
+    margin-right:5px !important;
+}
+.powermail_radio_outer, .powermail_check_outer {
+    float:left;
+}
+.powermail_radio_inner, .powermail_check_inner {
+    clear:both;
+}
+.powermail_radio_inner label, .powermail_check_inner label {
+    float:left;
+}
+.powermail_check_inner label {
+    margin-right:5px;
+}
+div.bloc-contenu fieldset {
+	background: #F5F5F5;
+	border:1px solid #ccc;
+    padding:10px;
+}
+fieldset.powermail_fieldset fieldset {
+	border:0;
+	padding:0;
+}
+div.bloc-contenu label, label.field {
+	font-size:13px !important;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	margin-bottom:0;
+}
+#caltitle select {
+	width:auto !important;
+}
+div.bloc-contenu input[type="text"] {
+	width: 200px;
+}
+div.bloc-contenu .powermail_fieldset input[type="text"], div.bloc-contenu .powermail_fieldset input[type="email"] {
+	width: 300px;
+}
+.powermail_textarea {
+ width:300px !important;   
+}
+div.bloc-contenu textarea {
+	width:95%;
+	
+}
+.powermail_submit {
+    float:right;
+}
+
+div.bloc-contenu div.subcolumns div input{
+	display:block;
+}
+
+form#step2 input.datePicker, form#step2 input.ui-widget-content {
+	width:100px !important;
+}
+input#reader_email {
+	width:200px !important;
+}
+a.tcMenuFlylevel1 {
+display: inline-block;
+padding: 4px 12px;
+margin-bottom: 20px;
+font-size: 13px;
+line-height: 20px;
+color: #333;
+text-align: center;
+text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+vertical-align: middle;
+cursor: pointer;
+background-color: #f5f5f5;
+background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+background-repeat: repeat-x;
+border: 1px solid #ccc;
+border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+border-bottom-color: #b3b3b3;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+.tcMenuFly {
+	margin-top:15px;
+}
+.caroufredsel_wrapper {
+	margin-bottom:20px;
+}
+
+.tcMenuFlyNav {
+display: block;
+margin-right: 4px;
+float: left;
+font-size: 11px;
+}
+
+.bloc-contenu .caroufredsel_wrapper {
+    width:400px !important;
+}
+/* Liste d'adresses */
+#calendar-event ul {
+	margin:0 0 10px 0;
+}
+
+/* Formulaire Evénements */
+fieldset.tx-powermail-pi1_fieldset input.powermail_time, fieldset.tx-powermail-pi1_fieldset input[type=time] {
+width: 65px;
+}
+.tx_powermail_pi1_formconfirmation_back, .tx_powermail_pi1_formconfirmation_submit {
+	float:left;
+	padding-top:20px;
+}
+.tx_powermail_pi1_formconfirmation_back {
+	margin-right:20px;	
+}
+.powermail_all_tr_uid419, .powermail_all_tr_uid418, .powermail_all_tr_uid432 {
+	display: none;
+}
+.event-time {
+	font-size:13px;
+	color:#bbb;
+}
+
+/* eGov */
+
+h2.tx_egovapi_service, h2.tx_egovapi_service + p {display:none}
+
+.news_rss {
+    font-size:12px;
+    line-height:10px;
+    margin-top:-16px;
+}
+.news_rss img, .rss_com {
+    vertical-align:top;
+}
+.news_rss_inside, .rss_com_inside {
+    margin-top:-23px;
+}
+.tx-indexedsearch-icon img {
+    max-width:none;
+}
+
+/* Nouveau Template de la page d'accueil */
+.no-margin-left {
+    margin-left:0;
+}
+.adresse.clear {
+    margin-top:20px;
+    margin-left:20px;
+    background: #f5f5f5;
+    color:#000;
+}
+div.span6.bloc-actus {
+    margin-bottom:15px;
+}
+
+/* Menu accordéon */
+.interieur-accordeon .bodytext,.interieur-accordeon table,.interieur-accordeon ul,.interieur-accordeon ol {
+    display:none;
+}
+.interieur-accordeon .csc-header, .accordionButton, .accordionButtonSelected {
+    cursor:pointer;
+}
+.interieur-accordeon h3 {
+    font-size:14px !important;
+}
+.addressDetail {
+    width:80%;
+}
+
+/* Objets trouvés */
+.allcat {
+    display:none;
+}
+.catobjets {
+    float:left;
+    margin:10px 15px 30px 0;
+}
+.catobjets .btn-warning {
+    margin-right:10px;
+}
+.label-categorie {
+    margin-top:20px;
+}
+.objetstrouves .news-list-image {
+    float:right;
+}
+.objetstrouves, .clear-objets {
+    clear:both;
+}
+.objets {
+    float:left;
+}
+
+.objetstrouves .news-list-item {
+    width:310px;
+    
+    
+}
+.objets .news-list-subheader{
+    float:right;
+    margin-top:20px;    
+}
+.objets .label-categorie {
+    float:left;
+    
+}
+/* Formulaires TYPO3 */
+
+/*************************************************
+* FORMULAIRES
+*************************************************/*
+
+div.csc-mailform {
+    background-color: #FFFFFF;
+    padding-left:10px;
+    padding-bottom:20px;   
+}
+
+.csc-mailform label em, .csc-mailform legend em {
+    display: inline;
+    color: #C00;
+    font-size: 100%;
+    font-style: normal;
+    text-transform: uppercase;
+}
+.contenu div.csc-mailform li label {
+
+margin-right: 1em;
+vertical-align: baseline;
+}
+.csc-mailform fieldset li {
+    padding: 0em !important;
+    margin-bottom: 10px !IMPORTANT;
+    list-style: none;
+}
+div.csc-mailform legend {
+    margin-left: 0em !important;
+    color: #aaaaaa;
+    font-weight: bold;
+    margin-bottom:5px;
+    font-size:2em !important;
+}
+div.csc-mailform fieldset ol {
+    padding: 1em 1em 0 0em !important;
+}
+div.csc-mailform input, div.csc-mailform textarea, div.csc-mailform .uneditable-input {
+width: 97%;
+}
+div.csc-mailform fieldset.fieldset-subgroup legend {
+margin-left: 0;
+padding: 0;
+font-weight: normal;
+width: 100%;
+}
+div.csc-mailform input[type="radio"], div.csc-mailform input[type="checkbox"]  {
+width: auto !important;
+display: inline-block;
+float: left !important;
+}
+div.csc-mailform fieldset.fieldset-subgroup ol {
+list-style-type: none;
+position: relative;
+top: 0;
+margin: 0 0 0 0em !important;
+padding: 0;
+}
+
+div.csc-mailform form ol {
+    list-style-type:none;
+    
+    }
+
+
+li.csc-form-element-radio label, li.csc-form-element-checkbox label {
+    /*display:inline !important;*/
+    width:95% !important;
+    float:right !important;
+}
+div.csc-mailform fieldset {
+    margin-top:10px !important;
+}
+div.csc-mailform select {
+    width:auto;
+}
+div.csc-mailform input[type="submit"], div.csc-mailform input[type="reset"] {
+    width:auto !important;
+    display:inline;
+}
+.csc-form-element-submit, .csc-form-element-reset, .csc-form-confirmation-false, .csc-form-confirmation-true {
+    display:inline;
+}
+.contenu .csc-form-element-textblock {
+    margin-bottom:10px !important;
+}
+.contenu li.csc-form-element-checkbox:last-child {
+    margin-bottom: 10px !important;
+}
+.contenu .csc-form-element-radio:last-child {
+    margin-bottom:10px !important;
+}
+
+div.csc-mailform input[type="text"] {
+    width: 300px;
+}
+
+div.csc-mailform ol, div.csc-mailform ol li.csc-form-element-checkbox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,28 @@
+/****************************************************************/
+/*   Design:      EOREN 2.0                                     */
+/*   Copyright:   Ville de Neuchâtel                            */
+/*   Name:        eoren.ch                                      */
+/*   Graphisme:   Rouge de Mars / CEG / Neuchâtel               */
+/*   HTML/CSS:    CEG / Neuchâtel                               */
+/*   Description: Styles pour le RTE TYPO3                      */
+/*--------------------------------------------------------------*/
+/*   Date:        MARS   2013                                   */
+/****************************************************************/
+
+
+/* TAG GENERAUX */
+.align-right {
+	text-align:right;
+}
+.align-center {
+	text-align:center;
+}
+.align-left {
+	text-align:left;
+}
+blockquote.cartographie {
+	background:url(/fileadmin/sites/eoren/system/img/logoSITN.gif) no-repeat;
+	height:32px;
+	width:100px;
+	display:block;
+}

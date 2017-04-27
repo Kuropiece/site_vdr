@@ -1,0 +1,58 @@
+div.tx-cegcal-pi1 {
+	width:100%;
+	height:100%;
+	clear:both;
+}
+div.month-small-wrap {
+	clear:both;
+	width:190px; 
+	margin-top:30px;
+	}
+.tx-cal-controller  {
+
+
+}
+
+
+
+div.tx-cegcal-pi1 fieldset{
+	float:left;
+	padding-right:10px;
+}
+table.month-small {
+	width: 150px;
+}
+
+.month-small a:link, .monthoff a:visited {
+	color:red;
+}
+
+.monthOff a:link, .monthOff a:visited {
+	color: red !important;
+}
+
+.cal-list-container .event {
+	cursor: pointer;
+}
+
+.cal-list-container .details {
+	display: none;
+}
+
+.cal-list-container .cal-list-item {
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+}
+
+.tx-cal-controller .even {
+	background-color: inherit;
+}
+
+.cal-list-container .cal-list-item:hover {
+	background: #eee;
+}
+
+.cal-list-container {
+	margin-top:20px;
+	
+}

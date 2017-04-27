@@ -1,0 +1,39 @@
+#main_menu ul.level3 {
+    margin-left: 3px;
+}
+
+#main_menu ul.level4 {
+    margin-left: 6px;
+}
+
+#main_menu ul.level5 {
+    margin-left: 9px;
+}
+
+#main_menu ul.level6 {
+    margin-left: 12px;
+}
+
+#main_menu ul.level7 {
+    margin-left: 15px;
+}
+
+#main_menu ul.level8 {
+    margin-left: 18px;
+}
+
+#main_menu ul.level9 {
+    margin-left: 21px;
+}
+
+#main_menu li.cur > a {
+    font-weight: bold !important;
+}
+
+#main_menu li.act > a {
+    font-weight: bold !important;
+}
+
+#main_menu li.curifsub > a {
+    font-weight: bold !important;
+}
