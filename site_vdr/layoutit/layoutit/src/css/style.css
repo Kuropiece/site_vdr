@@ -1,0 +1,67 @@
+body{
+    
+    width: 100%;
+    background-color: darkgrey;
+}
+#1{
+    position: relative;
+}
+.container1{
+    margin-left: auto;
+    margin-right: auto;
+    width:75%;
+    background-color: white;   
+}
+#title{
+    color: white;
+    position: absolute;
+    top: 0.7em;
+    left: 1em;
+}
+page-header{
+    position: relative;
+    
+}
+#banner{
+    position: static;
+    width: 100%;
+    
+}
+.navbar{
+    width: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.footer{
+    margin-top: 2em;
+    width: 100%;
+    background-color: dimgray;
+}
+
+.footer p{
+    color: white;
+    text-align: center;
+}
+.logos-footer{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+.container{
+    width: 75%;
+    background-color: lightgray;
+}
+.row{
+    padding: 0;
+    margin-top: 0;
+}
+.span30{
+    background-color: dimgray;
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+}
+
+.span30 a{
+    color: white;
+}

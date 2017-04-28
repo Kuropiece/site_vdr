@@ -1,0 +1,177 @@
+(function ($) {
+	$.tcMenu = function (element, options) {
+		var base = this;
+
+
+		// Access to jQuery and DOM versions of element
+		base.$el = $(element);
+		base.element = element;
+
+		// Add a reverse reference to the DOM object
+		base.$el.data("tcMenu", base);
+
+		/**
+		 * Transformation des ul/li de 2ème niveau en colonnes
+		 */
+		var liToCols = function () {
+			/**
+			 * Tranformation du ul / li de 1er niveau en multicolonnes
+			 */
+			base.$el.append('<div class="detail"></div>');
+			var detail = base.$el.find('.detail');
+
+			base.$el.find('.tcMenuFly.tcMenuFlylevel1 > li').each(function (index, value) {
+				var $this = $(this);
+
+
+				var menuIndex = 'menu' + index;
+				var menuAddress = '#' + menuIndex;
+
+
+				detail.append(
+					'<div id="' + menuIndex + '" class="submenu">' +
+					'<div class="subcolumns">' +
+					'<div class="c33l"><ul></ul></div>' +
+					'<div class="c33l"><ul></ul></div>' +
+					'<div class="c33r"><ul></ul></div>' +
+
+					'</div>' +
+					'</div>');
+
+				var size = $(this).find('.tcMenuFlylevel2 > li').length;
+
+				var rapport = Math.ceil(size / 3);
+				$this.find('.tcMenuFlylevel2 > li').each(function (index, value) {
+					var $this = $(this);
+
+					if (index > ((rapport) - 1) && index < (rapport * 2)) {
+						detail.find(menuAddress + ' .subcolumns .c33l ul:eq(1)').append($this);
+
+					} else if (index >= (rapport * 2) && index < (size)) {
+						detail.find(menuAddress + ' .subcolumns .c33r ul').append($this);
+
+					} else {
+						detail.find(menuAddress + ' .subcolumns .c33l ul:eq(0)').append($this);
+					}
+				});
+			});
+		};
+
+		var getSubMenuCount = function (index) {
+			return $('#menu' + index).find('li').length;
+		}
+
+		var handleFirstLevelClick = function () {
+			base.$el.find('.tcMenuFlylevel1 a.tcMenuFlylevel1').each(function (index, item) {
+				var self = $(item);
+
+				// Attribution du lien vers le DIV "detail", qui contient les menus de niveau 2
+				self.attr('href', '#menu' + index);
+
+				var title = self.text();
+				self.attr('title', title);
+
+				var subMenuCount = getSubMenuCount(index);
+				var height = 80 + (subMenuCount / 3) * 15;
+
+				self.fancybox({
+					autoDimensions: false,
+					overlayShow: false,
+					padding: 20,
+					//height: height,
+					transitionIn: 'none',
+					transitionOut: 'none',
+					titleShow: true,
+					onComplete: function () {
+						$('#fancybox-wrap').addClass('tcMenuFlyFancybox')
+					}
+				});
+			});
+		};
+
+		/**
+		 * Gestion du carousel, via le plugin carouFredSel
+		 */
+		var handleCarousel = function () {
+			var caroufredsel = base.$el.find('.tcMenuFly.tcMenuFlylevel1').carouFredSel({
+				duration: 0,
+				circular: false,
+				infinite: false,
+				prev: '.tcMenuFlyPrev',
+				next: '.tcMenuFlyNext',
+				items: {
+					visible: base.options.visibleMenusCount
+				},
+				
+				direction: "left",
+				auto: {
+					play: false
+				}
+			});
+
+
+			// Si carouFredSel n'affiche pas les boutons de navigation "previous" et "next",
+			// on masque les boutons "1ère page" et "dernière page"
+			if (base.$el.find('.tcMenuFlyNext.tcMenuFlyNav').css("display") == "none") {
+				base.$el.find('.tcMenuFlyLast.tcMenuFlyNav').css("display", "none");
+				base.$el.find('.tcMenuFlyFirst.tcMenuFlyNav').css("display", "none");
+			}
+
+			/**
+			 *  Bouton "1ère page"
+			 */
+			base.$el.find('.tcMenuFlyFirst').bind('click', function () {
+				caroufredsel.trigger("slideTo", 0);
+				return false;
+			});
+
+			/**
+			 *  Bouton "Dernière page"
+			 */
+			base.$el.find('.tcMenuFlyLast').bind('click', function () {
+				var last = base.$el.find('.tcMenuFly.tcMenuFlylevel1 > li').length - 1;
+				caroufredsel.trigger("slideTo", last);
+				return false;
+			});
+		};
+
+		base.init = function () {
+			base.options = $.extend({}, $.tcMenu.defaultOptions, options);
+
+			liToCols();
+
+			handleFirstLevelClick();
+
+			handleCarousel();
+		};
+
+		base.publicMethod = function (parameters) {
+			// Public method
+		};
+
+		// Run initializer
+		base.init();
+	};
+
+	$.tcMenu.defaultOptions = {
+		visibleMenusCount: 10
+	};
+
+	$.fn.tcMenu = function (options) {
+		return this.each(function () {
+			(new $.tcMenu(this, options));
+		});
+	};
+
+	$.fn.getTcMenu = function () {
+		return this.data("tcMenu");
+	};
+
+})(jQuery);
+
+
+$(document).ready(function () {
+	$('.tcMenuFly').tcMenu({
+		visibleMenusCount: 6
+	});
+})

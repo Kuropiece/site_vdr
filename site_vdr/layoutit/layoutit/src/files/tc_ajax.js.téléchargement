@@ -1,0 +1,96 @@
+(function ($) {
+    $.renderAjax = function (el, options) {
+        var base = this;
+
+        // Access to jQuery and DOM versions of element
+        base.$el = $(el);
+        base.el = el;
+
+        // Add a reverse reference to the DOM object
+        base.$el.data("renderAjax", base);
+
+        base.init = function () {
+            base.options = $.extend({}, $.renderAjax.defaultOptions, options);
+
+            var serverCaching = (base.$el.hasClass('no_cache')) ? '&no_cache=1' : '';
+            var clientCaching = true;
+
+
+            var url = base.$el.find('.url').text() + serverCaching;
+
+            jQuery.ajax({
+                url:url,
+                type:"GET",
+                scriptCharsetString:"utf-8",
+                dataType:"html",
+                cache:clientCaching,
+                statusCode: {
+                  303: function() {
+                      //console.log('303')
+                  }
+                },
+
+                success:function (response, textStatus, jqXHR) {
+                    var parentToReplace = base.$el.find('.parentToReplace').text();
+
+                    if (parentToReplace == '') {
+                        parentToReplace = '.csc-default'
+                    }
+
+                    var ajaxContent = base.$el.parents(parentToReplace).filter(':first');
+
+                    /*ajaxContent
+                            .replaceWith(response);
+                            */
+
+                    ajaxContent.html(response)
+
+
+
+                    if (base.options.callback !== undefined) {
+                        base.options.callback(response);
+                    }
+                },
+
+                error:function (jqXHR, textStatus, errorThrown) {
+                    log('renderAjax: ' + errorThrown + ', ' + textStatus + ', ' + jqXHR.responseText);
+                }
+            });
+
+
+        };
+
+        function log(message, title) {
+            if (window.console) {
+
+                title = (title == undefined) ? '' : title;
+                console.log(message, '      ' + title);
+            }
+        };
+
+        base.publicMethod = function (parameters) {
+            // Public method
+        };
+
+        // Run initializer
+        base.init();
+    };
+
+    $.renderAjax.defaultOptions = {
+        callback:undefined
+    };
+
+    $.fn.renderAjax = function (options) {
+        return this.each(function () {
+            (new $.renderAjax(this, options));
+        });
+    };
+
+    $.fn.getRenderAjax = function () {
+        this.data("renderAjax");
+    };
+
+})(jQuery);
+
+
+

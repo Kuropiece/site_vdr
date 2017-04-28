@@ -1,0 +1,13 @@
+/**********************************************************
+***** Ajax
+**********************************************************/
+
+.hidden {
+    display: none;
+}
+
+.tx_tcajax_loading {
+    background: url(../images/ajax-loader.gif) no-repeat 50% 50%;
+    height: 50px;
+
+}
